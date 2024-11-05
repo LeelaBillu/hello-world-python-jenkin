@@ -12,7 +12,7 @@ pipeline {
         //stage 2: 
          stage('Install Dependencies') {
             steps {
-                bat 'pip install -r requirements.txt'  // Use 'pip3' if necessary
+                bat 'pip install pytest'  // Use 'pip3' if necessary
             }
         }
 
