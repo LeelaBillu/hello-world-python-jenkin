@@ -9,8 +9,14 @@ pipeline {
                 echo 'checkouted'
             }
         }
+        //stage 2: 
+         stage('Install Dependencies') {
+            steps {
+                bat 'pip install -r requirements.txt'  // Use 'pip3' if necessary
+            }
+        }
 
-       // Stage 2: Run hello.py script
+       // Stage 3: Run hello.py script
         stage('Run Hello Script') {
             steps {
                 script {
@@ -19,6 +25,7 @@ pipeline {
                 }
             }
         }
+        //stage 4:
         stage('Run Test cases'){
             steps{
                 bat 'python test_hello.py'
