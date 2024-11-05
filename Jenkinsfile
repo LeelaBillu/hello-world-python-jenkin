@@ -5,7 +5,7 @@ pipeline {
         // Stage 1: Checkout Code from GitHub
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/LeelaBillu/hello-world-python-jenkin.git', branch: 'main'
+                git url: 'https://github.com/LeelaBillu/hello-world-python-jenkin', branch: 'main'
                 echo 'checkouted'
             }
         }
