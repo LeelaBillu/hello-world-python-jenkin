@@ -18,10 +18,13 @@ pipeline {
                     bat 'python hello.py'  // Use 'python3 hello.py' if your system uses Python 3.x
                 }
             }
+        }
         stage('Run Test cases'){
             steps{
                 bat 'python test_hello.py'
-       }
+            }
+        }
+        } 
     }
 
     post {
