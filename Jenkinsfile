@@ -10,15 +10,15 @@ pipeline {
             }
         }
 
-        // Stage 2: Run hello.py script
-        // stage('Run Hello Script') {
-        //     steps {
-        //         script {
-        //             // Execute the hello.py script
-        //             sh 'python hello.py'  // Use 'python3 hello.py' if your system uses Python 3.x
-        //         }
-        //     }
-       // }
+       // Stage 2: Run hello.py script
+        stage('Run Hello Script') {
+            steps {
+                script {
+                    // Execute the hello.py script
+                    bat 'python hello.py'  // Use 'python3 hello.py' if your system uses Python 3.x
+                }
+            }
+       }
     }
 
     post {
