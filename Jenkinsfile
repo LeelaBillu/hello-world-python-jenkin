@@ -18,7 +18,7 @@ pipeline {
         //             sh 'python hello.py'  // Use 'python3 hello.py' if your system uses Python 3.x
         //         }
         //     }
-        }
+       // }
     }
 
     post {
