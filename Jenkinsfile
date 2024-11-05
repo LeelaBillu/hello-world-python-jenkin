@@ -24,7 +24,7 @@ pipeline {
                 bat 'python test_hello.py'
             }
         }
-        } 
+         
     }
 
     post {
