@@ -40,16 +40,16 @@ pipeline {
         success {
             echo 'Build completed successfully!'
             mail to: 'leelakumaryadav123@gmail',
-                 subject: "Build Success: ${currentBuild.fullDisplayName}",
-                 body: "The build has completed successfully.\n\nYou can check the details at ${env.BUILD_URL}."
+                 subject: "Build Success",
+                 body: "The build has completed successfully.\n\nYou can check the details"
         }
 
         // Notify on failure
         failure {
             echo 'Build failed.'
             mail to: 'leelakumaryadav123@gmail.com',
-                 subject: "Build Failure: ${currentBuild.fullDisplayName}",
-                 body: "The build has failed.\n\nYou can check the details at ${env.BUILD_URL}."
+                 subject: "Build Failure",
+                 body: "The build has failed.\n\nYou can check the details"
         }
 
         // Always notify (optional)
@@ -57,8 +57,8 @@ pipeline {
             echo 'Build finished'
             // This is where you could send a notification regardless of success or failure
             mail to: 'leelakumaryadav123@gmail.com',
-                 subject: "Build Finished: ${currentBuild.fullDisplayName}",
-                 body: "The build has finished.\n\nYou can check the details at ${env.BUILD_URL}."
+                 subject: "Build Finished: ",
+                 body: "The build has finished.\n\nYou can check the details"
         }
     }
 }
