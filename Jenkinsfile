@@ -38,8 +38,10 @@ pipeline {
     post {
         // Notify on success
         success {
-            emailext body: '''Hi Leela,
-               this email is coming from jenkins pipeline''', subject: 'Build successs', to: 'leelakumaryadav123@gmail.com'
+            echo 'Build sucess'
+            mail to: 'leelakumaryadav123@gmail.com',
+                 subject: "Build success: ${currentBuild.fullDisplayName}",
+                 body: "The build has failed.\n\nYou can check the details here : ${env.BUILD_URL}"
         }
 
         // // Notify on failure
