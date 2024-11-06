@@ -39,7 +39,7 @@ pipeline {
         // Notify on success
         success {
             echo 'Build completed successfully!'
-            mail to: 'recipient@example.com',
+            mail to: 'leelakumaryadav123@gmail',
                  subject: "Build Success: ${currentBuild.fullDisplayName}",
                  body: "The build has completed successfully.\n\nYou can check the details at ${env.BUILD_URL}."
         }
