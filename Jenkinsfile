@@ -6,37 +6,59 @@ pipeline {
         stage('Checkout') {
             steps {
                 git url: 'https://github.com/LeelaBillu/hello-world-python-jenkin', branch: 'main'
-                echo 'checkouted'
-            }
-        }
-        //stage 2: 
-         stage('Install Dependencies') {
-            steps {
-                bat 'pip install pytest'  // Use 'pip3' if necessary
+                echo 'Checked out code from GitHub'
             }
         }
 
-       // Stage 3: Run hello.py script
+        // Stage 2: Install Dependencies
+        stage('Install Dependencies') {
+            steps {
+                bat 'pip install pytest'  // Use 'pip3 install pytest' if using Python 3.x
+            }
+        }
+
+        // Stage 3: Run hello.py script
         stage('Run Hello Script') {
             steps {
                 script {
                     // Execute the hello.py script
-                    bat 'python hello.py'  // Use 'python3 hello.py' if your system uses Python 3.x
+                    bat 'python hello.py'  // Use 'python3 hello.py' if using Python 3.x
                 }
             }
         }
-        //stage 4:
-        stage('Run Test cases'){
-            steps{
-                bat 'python test_hello.py'
+
+        // Stage 4: Run Test Cases
+        stage('Run Test cases') {
+            steps {
+                bat 'python test_hello.py'  // Use 'python3 test_hello.py' if using Python 3.x
             }
         }
-         
     }
 
     post {
+        // Notify on success
+        success {
+            echo 'Build completed successfully!'
+            mail to: 'recipient@example.com',
+                 subject: "Build Success: ${currentBuild.fullDisplayName}",
+                 body: "The build has completed successfully.\n\nYou can check the details at ${env.BUILD_URL}."
+        }
+
+        // Notify on failure
+        failure {
+            echo 'Build failed.'
+            mail to: 'recipient@example.com',
+                 subject: "Build Failure: ${currentBuild.fullDisplayName}",
+                 body: "The build has failed.\n\nYou can check the details at ${env.BUILD_URL}."
+        }
+
+        // Always notify (optional)
         always {
             echo 'Build finished'
+            // This is where you could send a notification regardless of success or failure
+            mail to: 'recipient@example.com',
+                 subject: "Build Finished: ${currentBuild.fullDisplayName}",
+                 body: "The build has finished.\n\nYou can check the details at ${env.BUILD_URL}."
         }
     }
 }
