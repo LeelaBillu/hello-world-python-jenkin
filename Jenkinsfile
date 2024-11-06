@@ -39,14 +39,14 @@ pipeline {
     success {
         echo 'Build success'
         echo "Build result: ${currentBuild.result}" // Add this line for debugging
-        mail to: 'leelakumaryadav123@gmail.com',
+        mail to: 'vandana.kenche123@gmail.com',
              subject: "Build Success: ${currentBuild.fullDisplayName}",
              body: "The build was successful.\n\nYou can check the details here : ${env.BUILD_URL}"
     }
     failure {
         echo 'Build failed'
         echo "Build result: ${currentBuild.result}" // Add this line for debugging
-        mail to: 'leelakumaryadav123@gmail.com',
+        mail to: 'vandana.kenche123@gmail.com',
              subject: "Build Failed: ${currentBuild.fullDisplayName}",
              body: "The build has failed.\n\nYou can check the details here : ${env.BUILD_URL}"
     }
