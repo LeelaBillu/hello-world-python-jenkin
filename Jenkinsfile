@@ -44,21 +44,21 @@ pipeline {
                  body: "The build has completed successfully.\n\nYou can check the details"
         }
 
-        // Notify on failure
-        failure {
-            echo 'Build failed.'
-            mail to: 'leelakumaryadav123@gmail.com',
-                 subject: "Build Failure",
-                 body: "The build has failed.\n\nYou can check the details"
-        }
+        // // Notify on failure
+        // failure {
+        //     echo 'Build failed.'
+        //     mail to: 'leelakumaryadav123@gmail.com',
+        //          subject: "Build Failure",
+        //          body: "The build has failed.\n\nYou can check the details"
+        // }
 
-        // Always notify (optional)
-        always {
-            echo 'Build finished'
-            // This is where you could send a notification regardless of success or failure
-            mail to: 'leelakumaryadav123@gmail.com',
-                 subject: "Build Finished: ",
-                 body: "The build has finished.\n\nYou can check the details"
-        }
+        // // Always notify (optional)
+        // always {
+        //     echo 'Build finished'
+        //     // This is where you could send a notification regardless of success or failure
+        //     mail to: 'leelakumaryadav123@gmail.com',
+        //          subject: "Build Finished: ",
+        //          body: "The build has finished.\n\nYou can check the details"
+        // }
     }
 }
