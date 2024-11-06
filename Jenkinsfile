@@ -35,30 +35,21 @@ pipeline {
         }
     }
 
-    post {
-        // Notify on success
-        success {
-            echo 'Build sucess'
-            mail to: 'leelakumaryadav123@gmail.com',
-                 subject: "Build success: ${currentBuild.fullDisplayName}",
-                 body: "The build has failed.\n\nYou can check the details here : ${env.BUILD_URL}"
-        }
-
-        // // Notify on failure
-        // failure {
-        //     echo 'Build failed.'
-        //     mail to: 'leelakumaryadav123@gmail.com',
-        //          subject: "Build Failure",
-        //          body: "The build has failed.\n\nYou can check the details"
-        // }
-
-        // // Always notify (optional)
-        // always {
-        //     echo 'Build finished'
-        //     // This is where you could send a notification regardless of success or failure
-        //     mail to: 'leelakumaryadav123@gmail.com',
-        //          subject: "Build Finished: ",
-        //          body: "The build has finished.\n\nYou can check the details"
-        // }
+   post {
+    success {
+        echo 'Build success'
+        echo "Build result: ${currentBuild.result}" // Add this line for debugging
+        mail to: 'leelakumaryadav123@gmail.com',
+             subject: "Build Success: ${currentBuild.fullDisplayName}",
+             body: "The build was successful.\n\nYou can check the details here : ${env.BUILD_URL}"
     }
+    failure {
+        echo 'Build failed'
+        echo "Build result: ${currentBuild.result}" // Add this line for debugging
+        mail to: 'leelakumaryadav123@gmail.com',
+             subject: "Build Failed: ${currentBuild.fullDisplayName}",
+             body: "The build has failed.\n\nYou can check the details here : ${env.BUILD_URL}"
+    }
+}
+
 }
