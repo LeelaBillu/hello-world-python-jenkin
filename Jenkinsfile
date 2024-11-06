@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label windows-label } 
 
     stages {
         // Stage 1: Checkout Code from GitHub
